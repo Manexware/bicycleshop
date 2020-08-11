@@ -2,13 +2,11 @@ package com.company.bicycleshop.web.screens.order;
 
 import com.company.bicycleshop.entity.OrderStatus;
 import com.company.bicycleshop.service.OrderService;
-import com.haulmont.cuba.gui.components.HasValue;
 import com.haulmont.cuba.gui.model.DataContext;
 import com.haulmont.cuba.gui.screen.*;
 import com.company.bicycleshop.entity.Order;
 
 import javax.inject.Inject;
-import java.math.BigDecimal;
 
 @UiController("bicycleshop_Order.edit")
 @UiDescriptor("order-edit.xml")

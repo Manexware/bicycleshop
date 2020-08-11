@@ -3,15 +3,14 @@ package com.company.bicycleshop.service;
 import com.company.bicycleshop.entity.Order;
 import com.company.bicycleshop.entity.SparePart;
 import com.haulmont.cuba.core.global.DataManager;
-import com.haulmont.cuba.core.global.LoadContext;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
 import java.math.BigDecimal;
-import java.util.UUID;
 
 @Service(OrderService.NAME)
 public class OrderServiceBean implements OrderService {
+
 
     @Inject
     private DataManager dataManager;
@@ -29,14 +28,5 @@ public class OrderServiceBean implements OrderService {
             }
         }
         return amount;
-    }
-
-    @Override
-    public BigDecimal calculateAmount(UUID orderId) {
-        LoadContext<Order> context = LoadContext.create(Order.class)
-                .setQuery(LoadContext.createQuery("select o from workshop$Order o where o.id = :orderId")
-                        .setParameter("orderId", orderId)).setView("order-view");
-        Order order = dataManager.load(context);
-        return calculateAmount(order);
     }
 }
